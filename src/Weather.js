@@ -1,20 +1,23 @@
 import React, {useState} from "react";
 import "./Weather.css";
 import axios from "axios";
+import FormatDate from "./FormatDate";
 
 export default function Weather () {
     
     const [weatherData, setWeatherData]= useState({ready: false});
     function handleResponse(response){
-        console.log(response.data);
+
         setWeatherData({
             ready:true,
+            date: new Date(response.data.dt*1000),
             temperature: response.data.main.temp,
             city: response.data.name,
             wind: response.data.wind.speed,
             description: response.data.weather[0].description,
             humidity: response.data.main.humidity,
     });
+
     }
 
 if (weatherData.ready) {
@@ -32,7 +35,7 @@ if (weatherData.ready) {
         <h1>{weatherData.city}</h1>
         <ul>
             <li>
-                Wednesday 07:00
+                <FormatDate date={weatherData.date}/>
             </li>
             <li className="text-capitalize">
                 {weatherData.description}
@@ -65,8 +68,8 @@ if (weatherData.ready) {
         </div>
 } else {
     const apiKey= "5d7a48c45799df1cd3a05ecee722cc4e";
-
-    let apiUrl=`http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+    let city = "BARCELONA";
+    let apiUrl=`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "The app is loading...";
