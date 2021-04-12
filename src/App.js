@@ -9,7 +9,7 @@ export default function App() {
       <Weather defaultCity="Pasto"/>
     <footer>
       This project was coded by Matt Delac and is {" "}
-      <a href= "https://github.com/dpaz2290/react-weather-project" target="_blank">
+      <a href= "https://github.com/dpaz2290/react-weather-project" target="_blank" rel="noreferrer">
         open sourced on GitHub
         </a>
     </footer>
