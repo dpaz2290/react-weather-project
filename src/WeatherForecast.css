@@ -1,0 +1,8 @@
+.WeatherForecast {
+    text-align: center;
+}
+
+.WeatherForecastTemperature-max {
+    opacity: 0.5;
+    
+}

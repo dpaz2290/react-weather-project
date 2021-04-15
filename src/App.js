@@ -7,8 +7,8 @@ export default function App() {
     <div className="App">
       <div className="container">
       <Weather defaultCity="Pasto"/>
-    <footer>
-      This project was coded by Matt Delac and is {" "}
+          <footer>
+      This project was coded by Daniela Paz and is {" "}
       <a href= "https://github.com/dpaz2290/react-weather-project" target="_blank" rel="noreferrer">
         open sourced on GitHub
         </a>
